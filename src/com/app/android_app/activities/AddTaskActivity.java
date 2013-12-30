@@ -8,6 +8,7 @@ import com.app.android_app.R;
 import com.app.android_app.util.ActivityUtils;
 import com.app.android_app.util.Constants;
 
+import java.io.File;
 import java.util.Calendar;
 
 /**
@@ -63,6 +64,13 @@ public class AddTaskActivity extends Activity {
                 ActivityUtils.startActivity(getApplicationContext(), CurrentTaskActivity.class, extras);
             }
         });
+    }
+
+    private void saveTaskInfo() {
+        File tasks = new File("../res/xml/tasks.xml");
+        if (!tasks.exists()) {
+
+        }
     }
 
     private void initCurrentTasksButton() {
