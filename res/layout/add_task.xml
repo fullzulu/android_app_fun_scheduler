@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Add task screen"
+            android:id="@+id/title" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:textSize="30dp"/>
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignLeft="@+id/title" android:layout_below="@+id/title"
+            android:orientation="vertical" android:id="@+id/radioGroup" android:longClickable="false">
+        <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:text="Execute in chosen time" android:id="@+id/inRadioButton"
+                     android:layout_gravity="left|center_vertical" android:checked="true"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Execute at chosen time"
+                android:id="@+id/atRadioButton" android:layout_gravity="left|center_vertical" android:checked="false"/>
+    </RadioGroup>
+    <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="132dp"
+            android:id="@+id/timePicker"
+            android:layout_alignRight="@+id/currentTasksButton" android:layout_below="@+id/radioGroup"/>
+    <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="109dp"
+            android:id="@+id/datePicker"
+            android:visibility="invisible"
+            android:calendarViewShown="false"
+            android:clickable="false"
+            android:layout_below="@+id/timePicker" android:layout_alignLeft="@+id/title"
+            android:layout_alignRight="@+id/timePicker" android:layout_above="@+id/startTask"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:text="Choose time"
+            android:id="@+id/chooseTitle"
+            android:layout_toLeftOf="@+id/timePicker" android:layout_alignLeft="@+id/title"
+            android:layout_alignTop="@+id/timePicker" android:textSize="18dp"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Current tasks"
+            android:id="@+id/currentTasksButton"
+            android:layout_toRightOf="@+id/title" android:layout_below="@+id/title"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:text="START"
+            android:id="@+id/startTask"
+            android:textSize="8pt" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"/>
+</RelativeLayout>
