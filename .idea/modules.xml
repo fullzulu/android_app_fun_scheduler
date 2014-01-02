@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android_app.iml" filepath="$PROJECT_DIR$/android_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_app_fun_scheduler.iml" filepath="$PROJECT_DIR$/android_app_fun_scheduler.iml" />
     </modules>
   </component>
 </project>

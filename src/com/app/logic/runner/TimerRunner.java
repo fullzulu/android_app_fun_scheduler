@@ -1,10 +1,5 @@
 package com.app.logic.runner;
 
-import com.app.logic.beans.Task;
-import com.app.logic.beans.objectives.impl.TestObjective;
-import com.app.logic.timer.TaskRunner;
-import com.app.logic.timer.properties.impl.TimerAtProps;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,9 +37,10 @@ public class TimerRunner {
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm:ss");
         Date date = formatter.parse("09/02/13 22:30:15");
 
-        Task task = new Task(new TimerAtProps(date), new TestObjective("Task 2"));
-        TaskRunner runner = new TaskRunner(task, 1);
-        runner.schedule();
+
+//        Task task = new Task(new TimerAtProps(date), new TestObjective("Task 2"));
+//        TaskRunner runner = new TaskRunner(task, 1);
+//        runner.schedule();
 
         /* it's just a check for stopping
         long i = (long) 10000000000.0;

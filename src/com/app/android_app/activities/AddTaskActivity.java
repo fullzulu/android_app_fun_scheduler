@@ -56,7 +56,7 @@ public class AddTaskActivity extends Activity {
                     calendar.add(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
                     calendar.add(Calendar.MINUTE, timePicker.getCurrentMinute());
                 }
-                calendar.set(Calendar.SECOND, 0);
+//                calendar.set(Calendar.SECOND, 0);
 
                 Bundle extras = new Bundle();
                 extras.putSerializable(Constants.CALENDAR, calendar);
@@ -113,7 +113,8 @@ public class AddTaskActivity extends Activity {
         Calendar c = Calendar.getInstance();
         /*TODO uncomment these rows for datepicker restriction*/
 //        c.add(Calendar.DAY_OF_MONTH, 1);
-        datePicker.setMinDate(c.getTimeInMillis());
+        /*TODO after uncommenting remove -1 one second*/
+        datePicker.setMinDate(c.getTimeInMillis() - 1000);
 //        c = Calendar.getInstance();
 
         year = c.get(Calendar.YEAR);

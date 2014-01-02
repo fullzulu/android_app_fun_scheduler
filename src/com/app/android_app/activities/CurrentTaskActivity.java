@@ -43,15 +43,17 @@ public class CurrentTaskActivity extends Activity {
         TextView lastTaskView = (TextView) findViewById(R.id.lastTaskView);
         lastTaskView.setText(lastTaskString.toString());
 
-        run(calendar);
+        TextView remainingView = (TextView) findViewById(R.id.remainingView);
+
+        run(calendar, remainingView);
 
     }
 
-    private void/*???*/ run(Calendar calendar) {
+    private void/*???*/ run(Calendar calendar, TextView remainingView) {
         Date date = calendar.getTime();
 
         Task task = new Task(new TimerAtProps(date), new TestObjective("Task test"));
-        TaskRunner runner = new TaskRunner(task, 1);
+        TaskRunner runner = new TaskRunner(task, 1, remainingView);
         runner.schedule();
     }
 }

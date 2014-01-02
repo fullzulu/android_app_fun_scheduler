@@ -1,5 +1,6 @@
 package com.app.logic.timer;
 
+import android.widget.TextView;
 import com.app.logic.beans.Task;
 import com.app.logic.timer.properties.TimerProperties;
 
@@ -14,11 +15,13 @@ public class TaskRunner {
     private Timer timer;
     private Task task;
     private int delay;
+    private TextView statusView;
 
-    public TaskRunner(Task task, int delay) {
+    public TaskRunner(Task task, int delay, TextView statusView) {
         this.task = task;
         this.delay = delay;
         this.timer = new Timer();
+        this.statusView = statusView;
     }
 
     public void schedule() {
@@ -32,6 +35,7 @@ public class TaskRunner {
             taskProps.decrease();
             System.out.println("Execute " + task.getObjective().getDescription() +
                     ". " + taskProps.getStatus());
+            statusView.setText(taskProps.getStatus());
             if (taskProps.isCompleted()) {
                 timer.cancel();
                 System.out.println("Executing....");
