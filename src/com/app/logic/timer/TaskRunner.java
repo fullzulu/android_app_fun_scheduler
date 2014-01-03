@@ -1,6 +1,8 @@
 package com.app.logic.timer;
 
+import android.app.Activity;
 import android.widget.TextView;
+import com.app.android_app.R;
 import com.app.logic.beans.Task;
 import com.app.logic.timer.properties.TimerProperties;
 
@@ -15,13 +17,13 @@ public class TaskRunner {
     private Timer timer;
     private Task task;
     private int delay;
-    private TextView statusView;
+    private Activity activity;
 
-    public TaskRunner(Task task, int delay, TextView statusView) {
+    public TaskRunner(Task task, int delay, Activity activity) {
         this.task = task;
         this.delay = delay;
         this.timer = new Timer();
-        this.statusView = statusView;
+        this.activity = activity;
     }
 
     public void schedule() {
@@ -31,17 +33,26 @@ public class TaskRunner {
     private class RunnerTimerTask extends TimerTask {
         @Override
         public void run() {
-            TimerProperties taskProps = task.getProps();
-            taskProps.decrease();
-            System.out.println("Execute " + task.getObjective().getDescription() +
-                    ". " + taskProps.getStatus());
-            statusView.setText(taskProps.getStatus());
-            if (taskProps.isCompleted()) {
-                timer.cancel();
-                System.out.println("Executing....");
-                task.getObjective().toDo();
-                System.out.println("Executed....\nThe objective status is " + (task.getObjective().isDone() ? "DONE" : "FAILED"));
-            }
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    TimerProperties taskProps = task.getProps();
+                    taskProps.decrease();
+                    System.out.println("Execute " + task.getObjective().getDescription() +
+                            ". " + taskProps.getStatus());
+
+                    TextView remainingView = (TextView) activity.findViewById(R.id.remainingView);
+                    remainingView.setText(taskProps.getStatus());
+
+                    if (taskProps.isCompleted()) {
+                        timer.cancel();
+                        System.out.println("Executing....");
+                        task.getObjective().toDo();
+                        System.out.println("Executed....\nThe objective status is " + (task.getObjective().isDone() ? "DONE" : "FAILED"));
+                    }
+                }
+            });
+
         }
     }
 

@@ -15,15 +15,11 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="78dp"
-            android:text="New Text"
             android:id="@+id/lastTaskView" android:layout_alignLeft="@+id/title"
             android:layout_below="@+id/lastTaskTitle"
             android:layout_alignParentRight="true"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Remaining:"
-              android:id="@+id/remainingTitle" android:layout_below="@+id/lastTaskView"
-              android:layout_alignParentLeft="true"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="78dp" android:text="New Text"
+    <TextView android:layout_width="wrap_content" android:layout_height="78dp"
               android:id="@+id/remainingView"
-              android:layout_below="@+id/remainingTitle" android:layout_alignParentLeft="true"
-              android:layout_alignParentRight="true"/>
+              android:layout_alignLeft="@+id/title" android:layout_below="@+id/lastTaskView"
+              android:layout_alignRight="@+id/lastTaskView"/>
 </RelativeLayout>
