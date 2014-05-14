@@ -55,5 +55,13 @@ public class CurrentTaskActivity extends Activity {
         Task task = new Task(new TimerAtProps(date), new TestObjective("Task test"));
         TaskRunner runner = new TaskRunner(task, 1, activity);
         runner.schedule();
+
+        /**TODO
+         * insert into DB a record:
+         *   id??? - some thread id may be think of it in Thread Pool Model
+         *   datetime
+         *   status
+         * after the thread completion update status
+         */
     }
 }

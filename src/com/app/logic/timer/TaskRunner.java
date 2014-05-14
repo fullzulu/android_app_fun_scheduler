@@ -17,6 +17,7 @@ public class TaskRunner {
     private Timer timer;
     private Task task;
     private int delay;
+    //TODO think of this mix of 'view' and 'modal'
     private Activity activity;
 
     public TaskRunner(Task task, int delay, Activity activity) {
@@ -33,6 +34,7 @@ public class TaskRunner {
     private class RunnerTimerTask extends TimerTask {
         @Override
         public void run() {
+            //TODO think of this mix of 'view' and 'modal'
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -48,7 +50,9 @@ public class TaskRunner {
                         timer.cancel();
                         System.out.println("Executing....");
                         task.getObjective().toDo();
-                        System.out.println("Executed....\nThe objective status is " + (task.getObjective().isDone() ? "DONE" : "FAILED"));
+                        String finishString = "Executed....\nThe objective status is " + (task.getObjective().isDone() ? "DONE" : "FAILED");
+                        remainingView.setText(finishString);
+                        System.out.println(finishString);
                     }
                 }
             });
